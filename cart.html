@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<!-- <script src="jquery-3.6.0.slim.js"> -->
+<!-- </script> -->
+
+<body>
+    <div class="cart">
+        <div class="container">
+            <div class="main">
+                <h3>Корзина</h3>
+                <img class="cartImg" src="img/cart.png" alt="cart">
+            </div>
+            <div class="items">
+                <div class="item">
+                    <img class="picture" src="img/xiaomi11pro.jpg" alt="xiaomi11pro">
+                    <img class="removeProduct" src="img/times-circle-regular.svg" alt="remove">
+                    <div class="infoProd">
+                        <p class="nameOfProduct">Xiaomi 11 Pro</p>
+                        <p class="price">Цена: <span class="priceSpan">20000</span> грн</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="minus">-</button>
+                        <input class="pcs" type="text" value="1">
+                        <button class="plus">+</button>
+                        <p class="cost">Стоимость <span class="costSpan">20000</span> грн</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="picture" src="img/CDplayer.jpg" alt="cdplayer">
+                    <img class="removeProduct" src="img/times-circle-regular.svg" alt="remove">
+                    <div class="infoProd">
+                        <p class="nameOfProduct">CD player</p>
+                        <p class="price">Цена: <span class="priceSpan">5000</span> грн</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="minus">-</button>
+                        <input class="pcs" type="text" value="1">
+                        <button class="plus">+</button>
+                        <p class="cost">Стоимость <span class="costSpan">5000</span> грн</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="picture" src="img/computer.jpg" alt="computer">
+                    <img class="removeProduct" src="img/times-circle-regular.svg" alt="remove">
+                    <div class="infoProd">
+                        <p class="nameOfProduct">Computer</p>
+                        <p class="price">Цена: <span class="priceSpan">30000</span> грн</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="minus">-</button>
+                        <input class="pcs" type="text" value="1">
+                        <button class="plus">+</button>
+                        <p class="cost">Стоимость <span class="costSpan">30000</span> грн</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img class="picture" src="/img/F&D_F550X.jpg" alt="F&D F550">
+                    <img class="removeProduct" src="img/times-circle-regular.svg" alt="remove">
+                    <div class="infoProd">
+                        <p class="nameOfProduct">F&D F550</p>
+                        <p class="price">Цена: <span class="priceSpan">7000</span> грн</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="minus">-</button>
+                        <input class="pcs" type="text" value="1">
+                        <button class="plus">+</button>
+                        <p class="cost">Стоимость <span class="costSpan">7000</span> грн</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="picture" src="img/hellblade2.jpg" alt="hellblade2">
+                    <img class="removeProduct" src="img/times-circle-regular.svg" alt="remove">
+                    <div class="infoProd">
+                        <p class="nameOfProduct">Hellblade 2</p>
+                        <p class="price">Цена: <span class="priceSpan">3000</span> грн</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="minus">-</button>
+                        <input class="pcs" type="text" value="">
+                        <button class="plus">+</button>
+                        <p class="cost">Стоимость <span class="costSpan">3000</span> грн</p>
+                    </div>
+                </div>
+                <div class="productEnd">
+                    <div class="cartFooter">
+                        <div class="continueBuy">
+                            <img class="backArrow" src="img/arrow.png" alt="">
+                            <div class="textContinueBuy">Продолжить покупки</div>
+                        </div>
+                        <div class="checkout">
+                            <div class="total">
+                                <h2 class="totalText">Итого:</h2>
+                                <h2 class="totalHrn"><span class="totalSum">65000</span> грн</h2>
+                            </div>
+                            <div class="checkoutButton">оформить заказ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script script src="js/main.js"></script>
+    <script>
+        // Recalculation of the cost of added products
+
+        function recountCart() {
+            document.querySelectorAll(".item").forEach((item) => {
+                let priceSpan = item.querySelector(".priceSpan").innerText;
+                let inputValue = item.querySelector(".pcs").value;
+                let cost = Number(priceSpan) * Number(inputValue);
+                let costSpan = item.querySelector(".costSpan").innerHTML = cost;
+            });
+            totalAmount();
+        };
+        recountCart();
+
+        // Общая сумма товаров в корзине
+
+        function totalAmount() {
+            let totalSum = document.querySelector(".totalSum");
+            let total = document.querySelectorAll('.costSpan');
+            let totalCost = 0;
+            for (let i = 0; i < total.length; i++) {
+                let number = total[i].innerText;
+                totalCost += (+number);
+            };
+            totalSum.innerHTML = totalCost;
+        }
+
+        // Input event, keyup
+
+        let pcs = document.querySelectorAll('.pcs').forEach((em) => {
+
+            em.addEventListener('keyup', function(e) {
+                if (e.keyCode === 13) {
+                    em.setAttribute('value', this.value);
+                }
+                recountCart();
+            });
+        });
+
+        // Increase in the quantity of goods
+
+        document.querySelectorAll(".plus").forEach((plusEl) => {
+            plusEl.onclick = plusFunction;
+        });
+
+        function plusFunction() {
+            let mainParent = this.closest(".item");
+            let price = Number(mainParent.querySelector('.priceSpan').innerText);
+            let pcsField = mainParent.querySelector('.pcs');
+            let newCount = Number(pcsField.value) + 1;
+            pcsField.value = newCount;
+            recountCart();
+        };
+
+        // Reducing the quantity of goods
+
+        document.querySelectorAll(".minus").forEach((minusEl) => {
+            minusEl.onclick = minusFunction;
+        });
+
+        function minusFunction() {
+            let mainParent = this.closest(".item");
+            let price = Number(mainParent.querySelector('.priceSpan').innerText);
+            let pcsField = mainParent.querySelector('.pcs');
+            let newCount = Number(pcsField.value) - 1;
+            pcsField.value = newCount;
+            if (newCount < 1) {
+                if (confirm("Удалить товар?")) {
+                    this.closest("div").parentNode.remove();
+                } else {
+                    this.nextElementSibling.value = 1;
+                }
+            };
+            recountCart();
+        };
+
+        // Removing an item
+
+        document.querySelectorAll(".removeProduct").forEach((btn) => {
+            btn.onclick = deleteFunction;
+        });
+
+        function deleteFunction() {
+            this.parentNode.remove();
+            recountCart();
+        }
+    </script>
+</body>
+
+</html>

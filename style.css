@@ -1,0 +1,221 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.cart {
+    margin-top: 50px;
+    border-radius: 30px;
+    box-shadow: 0px 10px 40px 1px rgb(136, 136, 136);
+    border-radius: 50px;
+    max-width: 800px;
+}
+
+.container {
+    width: 88%;
+}
+
+.item,
+.productEnd {
+    display: inline-flex;
+    border-bottom: 1px solid rgb(194, 194, 194);
+}
+
+.picture {
+    width: 100px;
+    height: 100px;
+    transition: all 1s;
+}
+
+.picture:hover {
+    transform: scale(1.9);
+    z-index: +10;
+    box-shadow: 0px 1px 8px 0px rgb(155, 155, 155);
+}
+
+.infoProd {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    left: 10px;
+    position: relative;
+}
+
+.nameOfProduct,
+.price {
+    margin: 0;
+    z-index: -1;
+}
+
+.nameOfProduct {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.price {
+    font-weight: 700;
+    color: rgb(87, 87, 87);
+}
+
+.buttons {
+    display: inline-flex;
+    padding-top: 60px;
+}
+
+.plus {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.2s;
+    color: rgb(132, 0, 255);
+}
+
+.plus:hover {
+    color: white;
+    background-color: rgb(132, 0, 255);
+    transform: rotate(180deg);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid rgb(132, 0, 255);
+}
+
+.minus {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 0.2s;
+    color: rgb(255, 0, 85);
+}
+
+.minus:hover {
+    color: white;
+    background-color: rgb(255, 0, 85);
+    transform: rotate(-180deg);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    left: 1px;
+    position: relative;
+    border: 1px solid rgb(255, 0, 85);
+}
+
+.plus,
+.minus {
+    border: 1px solid hotpink;
+    height: 30px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 20px;
+    box-shadow: 0px 1px 8px 0px rgb(155, 155, 155);
+    cursor: pointer;
+}
+
+.removeProduct {
+    width: 20px;
+    position: relative;
+    top: -25px;
+    left: 550px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.removeProduct:hover {
+    transform: rotate(-1000deg) scale(2);
+}
+
+.pcs {
+    box-shadow: 0px 1px 8px 0px rgb(155, 155, 155);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border-left: hidden;
+    border-right: hidden;
+    border-top: 1px solid hotpink;
+    border-bottom: 1px solid hotpink;
+}
+
+.cost {
+    position: relative;
+    left: 50px;
+    font-weight: 700;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartImg {
+    width: 100px;
+    height: 100px;
+}
+
+.continueBuy {
+    margin: 30px 50px 55px 10px;
+    display: inline-flex;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.textContinueBuy {
+    font-size: 20px;
+    font-weight: 900;
+    color: grey;
+}
+
+.backArrow {
+    width: 50px;
+    height: 50px;
+    opacity: 50%;
+    transform: scale 60%;
+}
+
+.textContinueBuy {
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.cartFooter {
+    padding: 30px 0px 30px 0px;
+    display: flex;
+}
+
+.total {
+    margin-top: 20px;
+    width: 300px;
+    display: inline-flex;
+}
+
+.checkout {
+    border-radius: 10px;
+    background-color: rgb(215, 255, 175);
+}
+
+.checkoutButton {
+    text-transform: uppercase;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(rgb(17, 255, 96) 10%, 30%, rgb(0, 165, 49) 90%);
+    color: white;
+    font-weight: 700;
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.checkoutButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 1px 8px 0px rgb(255, 0, 0);
+}
